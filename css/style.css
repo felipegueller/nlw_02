@@ -1,0 +1,64 @@
+/* Cascading StyleSheets */
+
+:root { /* root é o elemento raíz do meu HTML inteiro */
+    
+    /* São váriaveis no css */
+    --color-background: #F0F0F7;
+    --color-primary-lighter: #9871F5;
+    --color-primary-light: #916BEA;
+    --color-primary: #8257E5;
+    --color-primary-dark: #774DD6;
+    --color-primary-darker: #6842c2;
+    --color-secondary: #04D361;
+    --color-secondary-dark: #04BF58;
+    --color-title-in-primary: #FFFFFF;
+    --color-text-in-primary: #D4C2FF;
+    --color-text-title: #32264D;
+    --color-text-complement: #9C98A6;
+    --color-text-base: #6A6180;
+    --color-line-in-white: #E6E6F0;
+    --color-input-background: #F8F8FC;
+    --color-button-text: #FFFFFF;
+    --color-box-base: #FFFFFF;
+    --color-box-footer: #FAFAFC;
+    --color-small-info: #C1BCCC;
+
+    /* tamanho da fonte padrão: 16px - 100% - 1rem */
+    font-size: 60%; /* controle das medidas rem */
+}
+
+* {
+    /* Tirando todo margin e padding vindo padrão dos navegadores */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Redimensiona o conteúdo da caixa através da largura estabelicida para a caixa, para cumprir o parâmetro estabelecido */
+}
+
+html,
+body {
+    height: 100vh; /*height - altura*/
+}
+
+body{
+    background-color: var(--color-background);
+    display: flex; /* Todos os elementos dentro de body devem ser flexíveis, isso permite que os elementos possam ocupar posições diferentes na tela */
+    align-items: center; /*O align-items tem a função de alinhar os itens dentro da altura estabelecida, neste caso alinhado ao centro da altura */
+    justify-content: center;/**/
+}
+
+/*Agrupar para todos esses elementos terem a font e a cor no padrão */
+body,
+input,
+button,
+textarea {
+    /* font: 500 1.6rem Poppins; forma reduzida dos atributos abaixo */
+    font-weight: 500;
+    font-family: Poppins;
+    font-size: 1.6rem;
+    color: var(--color-text-base);
+}
+
+#container {
+    width: 90vw; /*width - largura */
+    max-width: 700px; /* Largura máxima de 700px*/
+}
