@@ -3,48 +3,6 @@
     height: 100vh;
 }
 
-.page-header {
-    background-color: var(--color-primary);
-
-    display: flex; /* Deixa os elementos um do lado do outro */
-    flex-direction: column; /* coloca os elementos na disposição de colunas*/
-}
-.page-header .top-bar-container {
-    width: 90%;
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.6rem 0;
-}
-
-.page-header .top-bar-container a {
-    height: 3.2rem; /* aumentou a altura do link*/
-    transition: opacity 0.2s;
-}
-
-.page-header .top-bar-container a:hover {
-    opacity: 0.6;
-}
-
-.page-header .top-bar-container img {
-    height: 1.6rem; /* reduziu o tamanho da imagem para 16px*/
-}
-
-.page-header .header-content {
-    width: 90%;
-    margin: 3.2rem auto;
-
-    position: relative; /* Isso promove o controle das estruturas dos campos input*/
-}
-
-.page-header .header-content strong {
-    font: 700 3.6rem Archivo;
-    line-height: 4.2rem;
-    color: var(--color-title-in-primary);
-}
-
 #search-teachers {
     margin-top: 3.2rem;
 }
