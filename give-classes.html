@@ -7,12 +7,13 @@
 
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/partials/header.css">
-    <link rel="stylesheet" href="./styles/partials/give-classes.css">
+    <link rel="stylesheet" href="./styles/partials/forms.css">
+    <link rel="stylesheet" href="./styles/partials/page-give-classes.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
     
 </head>
-<body id="give-classes">
+<body id="page-give-classes">
     
     <div id="container">
          <header class="page-header">
@@ -24,95 +25,40 @@
              </div>
 
              <div class="header-content">
-                 <strong>Esses são os proffys disponíveis</strong>
-                 <form id="search-teachers">
-                     <div class="select-block">
-                          <label for="subject">Matéria</label>  <!-- O atributo for liga o label ao campo  -->
-                         <select name="subject" id="subject"> <!-- O nome do name tem que estar bem certinho, para que possa ser tratado no backend-->
-                             <option value="" disabled="" hidden="">Selecione uma opção..</option>
-                             <option value="1">Artes</option>
-                             <option value="2">Biologia</option>
-                             <option value="3">Ciências</option>
-                             <option value="4">Educação física</option>
-                             <option value="5">Física</option>
-                             <option value="6">Geografia</option>
-                             <option value="7">História</option>
-                             <option value="8">Matemática</option>
-                             <option value="9">Português</option>
-                             <option value="10">Química</option>
-                         </select>
-                     </div>
-                     <div class="select-block">
-                         <label for="weekday">Dia da semana</label>
-                         <select name="weekday" id="weekday">
-                             <option value="" disabled="" hidden="">Selecione uma opção..</option>
-                             <option value="0">Domingo</option>
-                             <option value="1">Segunda-feira</option>
-                             <option value="2">Terça-feira</option>
-                             <option value="3">Quarta-feira</option>
-                             <option value="4">Quinta-feira</option>
-                             <option value="5">Sexta-feira</option>
-                             <option value="6">Sábado</option>
-                         </select>
-                     </div>
-                     <div class="input-block">
-                         <label for="time">Hora(De 0 até 24)</label>
-                         <input name="time" id="time" type="time">
-                     </div>
-                     <button type="submit">Filtrar</button> <!-- Esse botão do tipo subimit tem a fnução de enviar o formulário. -->
-                 </form>
+                 <strong>Que incrível que você quer dar aulas</strong>
+                 <p>O primeiro passo, é preencher essa formulário de inscrição</p>
+
              </div>
          </header> 
          
          <main>
-            <article class="teacher-item">
-                <header>
-                    <img 
-                        src="https://avatars2.githubusercontent.com/u/2254731?s=460&amp;u=0ba16a79456c2f250e7579cb388fa18c5c2d7d65&amp;v=4" 
-                        alt="Diego Fernandes">
-                    <div>
-                        <strong>Diego Fernandes</strong>
-                        <span>Química</span>
-                    </div>
-                </header>
-            
-                <p>Entusiasta das melhores tecnologias de química avançada.<br><br>Apaixonado por explodir coisas em 
-                    laboratório e por mudar a vida das pessoas através de experiências. Mais de 200.000 pessoas já passaram 
-                    por uma das minhas explosões.</p>
-            
-                <footer>
-                    <p>Preço/hora <strong>R$ 20,00</strong>
-                    </p>
-                    <button type="button">
-                        <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
-                    </button>
-                </footer>
-            </article>
-            
-            <article class="teacher-item">
-                <header>
-                    <img 
-                        src="https://avatars2.githubusercontent.com/u/2254731?s=460&amp;u=0ba16a79456c2f250e7579cb388fa18c5c2d7d65&amp;v=4" 
-                        alt="Diego Fernandes">
-                    <div>
-                        <strong>Diego Fernandes</strong>
-                        <span>Química</span>
-                    </div>
-                </header>
-            
-                <p>Entusiasta das melhores tecnologias de química avançada.<br><br>Apaixonado por explodir coisas em 
-                    laboratório e por mudar a vida das pessoas através de experiências. Mais de 200.000 pessoas já passaram 
-                    por uma das minhas explosões.</p>
-            
-                <footer>
-                    <p>Preço/hora <strong>R$ 20,00</strong>
-                    </p>
-                    <button type="button">
-                        <img src="/images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
-                    </button>
-                </footer>
-            </article>
+            <form action="" id="create-class">
+                <!-- Fildset são as caixas de agrupamento-->
+                <fieldset>
+                    <legend>Seus dados</legend>
 
+                    <div class="input-block">
+                        <label for="name">Nome completo</label>
+                        <input name="name" id="name" required>
+                    </div>
+
+                    <div class="input-block">
+                        <label for="avatar"> Link da sua foto <small>(comece com https://)</small></label>
+                        <input name="avatar" id="avatar" type="url" required>
+                    </div>
+
+                    <div class="input-block">
+                        <label for="whatsapp">Whatsapp <small>(somente números)</small></label>
+                        <input name="whatsapp" id="whatsapp" type="number" required>
+                    </div>
+
+                    <div class="textarea-block">
+                        <label for="bio">Biografia</label>
+                        <textarea name="bio" id="bio" required></textarea>
+                    </div>
+
+                </fieldset>
+            </form>
          </main>
     </div>
 
