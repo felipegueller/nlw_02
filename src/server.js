@@ -24,21 +24,33 @@ const proffys = [
 ]
 
 function pageLanding(req, res) {
-    return res.sendFile(__dirname + "/views/index.html")
+    return res.render(__dirname + "/views/index.html")
 }
 
 function pageStudy(req, res) {
-    return res.sendFile(__dirname + "/views/study.html")
+    return res.render(__dirname + "/views/study.html")
 }
 
 function pageGiveClasses(req, res) {
-    return res.sendFile(__dirname + "/views/give-classes.html")
+    return res.render(__dirname + "/views/give-classes.html")
 }
 
 const express = require("express")
 const server = express()
 
-server.use(express.static("public"))
+// configurar nunjucks
+const nunjucks =require("nunjucks")
+nunjucks.configure("src/views",{
+    express: server,
+    noCash: true, // desativando o cash
+
+})
+
+server
+// configurar arquívos estáticos (css, scripts, imagens)
+.use(express.static("public"))
+//
+// rotas da aplicação
 .get("/", pageLanding)
 .get("/study", pageStudy)
 .get("/give-classes", pageGiveClasses)
