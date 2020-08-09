@@ -1,3 +1,4 @@
+// Dados
 const proffys = [
     {
         name: "Diego Fernandes",
@@ -23,22 +24,68 @@ const proffys = [
     }
 ]
 
+const subjects = [
+    "Artes",
+    "Biologia",
+    "Ciências",
+    "Educação física",
+    "Física",
+    "Geografia",
+    "História",
+    "Matemática",
+    "Português",
+    "Química",
+]
+
+const weekdays = [
+    "Domingo",
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sábado",
+]
+
+function getSubject(subjectNumber){
+    const arrayPosition = +subjectNumber - 1
+    return subjects[arrayPosition]
+}
+
+//  Funcionalidades
 function pageLanding(req, res) {
     return res.render("index.html")
 }
 
 function pageStudy(req, res) {
-    return res.render("study.html", { proffys: proffys})
+    const filters = req.query // recebe os dados provenientes do navegador
+    return res.render("study.html", { proffys, filters, subjects, weekdays})
 }
 
 function pageGiveClasses(req, res) {
-    return res.render("give-classes.html")
+    const data = req.query
+    
+    const isNotEmpty = Object.keys(data).length > 0
+    // se tiver dados (data)
+    if(isNotEmpty){
+
+        data.subject = getSubject(data.subject)
+
+        // adicionar dados a lista de proffys
+        proffys.push(data)
+        
+        return res.redirect("/study")
+    }
+
+    // se não, mostrar a página
+    return res.render("give-classes.html", {subjects, weekdays})
 }
 
+// Servidor
 const express = require("express")
 const server = express()
 
-// configurar nunjucks
+// configurar nunjucks (template engine)
 const nunjucks =require("nunjucks")
 nunjucks.configure("src/views",{
     express: server,
@@ -46,13 +93,14 @@ nunjucks.configure("src/views",{
 
 })
 
+//Início e configuração do servidor
 server
 // configurar arquívos estáticos (css, scripts, imagens)
 .use(express.static("public"))
-//
 // rotas da aplicação
 .get("/", pageLanding)
 .get("/study", pageStudy)
 .get("/give-classes", pageGiveClasses)
+// Start do servidor
 .listen(5500)
 
